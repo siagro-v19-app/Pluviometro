@@ -1,0 +1,48 @@
+<mvc:View controllerName="br.com.idxtecPluviometro.controller.Pluviometro"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:t="sap.ui.table">
+	<App>
+		<pages>
+			<Page showHeader="false" class="sapUiContentPadding" enableScrolling="false">
+				<content>
+					<t:Table id="tablePluviometro"
+						selectionMode="Single"
+						selectionBehavior="Row"
+						class="sapUiSizeCondensed"
+						visibleRowCountMode="Auto"
+						enableBusyIndicator="true"
+						alternateRowColors="true">
+						<t:toolbar>
+							<Toolbar>
+								<Title text="Lista de Pluviômetro"/>
+								<ToolbarSpacer/>
+								<SearchField placeholder="Pesquisar descrição..." width="30%" search="filtraPluviometro"/>
+							</Toolbar>
+						</t:toolbar>
+						<t:columns>
+							<t:Column filterProperty="Descricao" sortProperty="Descricao">
+								<Label text="Descrição"/>
+								<t:template>
+									<Text text="{Descricao}"/>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button id="incluir" text="Incluir novo" press="onIncluir" type="Emphasized"/>
+						<Button id="editar" text="Editar" press="onEditar"/>
+						<Button id="remover" text="Remover" press="onRemover"/>
+						<ToolbarSeparator/>
+						<Button icon="sap-icon://refresh" press="onRefresh"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
